@@ -33,7 +33,7 @@
                 ctx.closePath();
                 ctx.stroke();
                 
-                // closePath() 없어도 결과는 같음
+                // stroke를 그리지 않으면, closePath() 없어도 결과는 같음
                 ctx.beginPath();
                 ctx.strokeStyle = "rgb(200, 0, 0)";
                 ctx.arc(300, 200, 20, 0, Math.PI, true);
