@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Canvas Arc Practice</title>
+        <script type="text/javascript">
+            function init() {
+                let ctx = document.getElementById("canvas").getContext('2d');
+                // arc(cx, cy, radius, start_angle, end_angle, direction)
+                // start_angle이 0일 때, 1사분면 x축에서 시작
+                // direction이 false 일 때, 시계 방향으로 end_angle 만큼 그림
+                // direction이 true 일 때, 반시계 방향으로 end_angle 만큼 제외하고 그림
+                ctx.beginPath();
+                ctx.strokeStyle = "rgb(200, 0, 0)";
+                ctx.arc(200, 100, 20, 0, Math.PI, false);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.strokeStyle = "rgb(200, 0, 0)";
+                ctx.arc(300, 100, 20, 0, Math.PI, true);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.strokeStyle = "rgb(200, 0, 0)";
+                ctx.arc(400, 100, 20, 0, 0.5*Math.PI, true);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.strokeStyle = "rgb(200, 200, 0)";
+                ctx.arc(200, 200, 20, 0, Math.PI, false);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.strokeStyle = "rgb(200, 200, 0)";
+                ctx.arc(300, 200, 20, 0, 2*Math.PI, true);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.strokeStyle = "rgb(200, 200, 0)";
+                ctx.arc(400, 200, 20, 0, 1.5*Math.PI, true);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.strokeStyle = "rgb(200, 200, 200)";
+                ctx.arc(200, 300, 20, 0, 1.5*Math.PI, false);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.strokeStyle = "rgb(100, 200, 200)";
+                ctx.arc(200, 400, 110, 0, 2*Math.PI, false);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.strokeStyle = "rgb(100, 200, 200)";
+                ctx.arc(400, 500, 100, 0, 2*Math.PI, false);
+                ctx.stroke();
+            }
+        </script>
+    </head>
+    <body onLoad="init();">
+        <canvas id="canvas" width="450" height="500">
+            Your browser doesn't support the HTML5 element canvas.
+        </canvas>
+    </body>
+</html>

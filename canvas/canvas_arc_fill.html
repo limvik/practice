@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Canvas Arc Practice</title>
+        <script type="text/javascript">
+            function init() {
+                let ctx = document.getElementById("canvas").getContext('2d');
+                ctx.beginPath();
+                ctx.strokeStyle = "rgb(200, 0, 0)";
+                ctx.arc(100, 100, 20, 0, Math.PI, false);
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.strokeStyle = "rgb(200, 0, 0)";
+                ctx.arc(200, 100, 20, 0, Math.PI, false);
+                ctx.closePath();
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.strokeStyle = "rgb(200, 0, 0)";
+                ctx.arc(300, 100, 20, 0, Math.PI, false);
+                ctx.closePath();
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.strokeStyle = "rgb(200, 0, 0)";
+                ctx.arc(100, 200, 20, 0, Math.PI, true);
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.strokeStyle = "rgb(200, 0, 0)";
+                ctx.arc(200, 200, 20, 0, Math.PI, true);
+                ctx.closePath();
+                ctx.stroke();
+                
+                // closePath() 없어도 결과는 같음
+                ctx.beginPath();
+                ctx.strokeStyle = "rgb(200, 0, 0)";
+                ctx.arc(300, 200, 20, 0, Math.PI, true);
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.arc(100, 300, 20, 0, Math.PI, true);
+                ctx.fillStyle = "rgb(200, 100, 100)";
+                ctx.fill();
+                ctx.strokeStyle = "rgb(200, 0, 0)";
+                ctx.lineWidth = 3;
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.arc(200, 300, 20, 0, Math.PI, true);
+                ctx.fillStyle = "rgb(200, 100, 100)";
+                ctx.fill();
+                ctx.strokeStyle = "rgb(200, 0, 0)";
+                ctx.lineWidth = 3;
+                ctx.closePath();
+                ctx.stroke();
+
+                ctx.clearRect(200, 290, 10, 10);
+            }
+        </script>
+    </head>
+    <body onLoad="init();">
+        <canvas id="canvas" width="450" height="500">
+            Your browser doesn't support the HTML5 element canvas.
+        </canvas>
+    </body>
+</html>
