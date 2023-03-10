@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <title>Throwing 1 die</title>
+        <script>
+            var cwidth = 400;
+            var cheight = 300;
+            var dicex = 50;
+            var dicey = 50;
+            var diceWidth = 100;
+            var diceHeight = 100;
+            var dotRadius = 6;
+            var ctx;
+
+            function init() {
+                var ch = 1 + Math.floor(Math.random() * 6);
+                drawFace(ch);
+            }
+
+            function drawFace(n) {
+                ctx = document.getElementById('canvas')
+                              .getContext('2d');
+                ctx.lineWidth = 5;
+                ctx.clearRect(dicex, dicey, diceWidth, diceHeight);
+                ctx.strokeRect(dicex, dicey, diceWidth, diceHeight);
+                ctx.fillStyle = "#cc33ff";
+
+                switch(n) {
+                    case 1:
+                        draw1();
+                        break;
+                    case 2:
+                        draw2();
+                        break;
+                    case 3:
+                        draw2();
+                        draw1();
+                        break;
+                    case 4:
+                        draw4();
+                        break;
+                    case 5:
+                        draw4();
+                        draw1();
+                        break;
+                    case 6:
+                        draw4();
+                        draw2mid();
+                        break;
+                }
+            }
+
+            function draw1() {
+                ctx.beginPath();
+                var dotx = dicex + .5*diceWidth;
+                var doty = dicey + .5*diceHeight;
+                ctx.arc(dotx, doty, dotRadius, 0, 2*Math.PI, true);
+                ctx.closePath();
+                ctx.fill();
+            }
+
+            function draw2() {
+                ctx.beginPath();
+                var dotx = dicex + 3*dotRadius;
+                var doty = dicey + 3*dotRadius;
+                ctx.arc(dotx, doty, dotRadius, 0, 2*Math.PI, true);
+                dotx = dicex + diceWidth - 3*dotRadius;
+                doty = dicey + diceHeight - 3*dotRadius;
+                ctx.arc(dotx, doty, dotRadius, 0, 2*Math.PI, true);
+                ctx.closePath();
+                ctx.fill();
+            }
+
+            function draw4() {
+                draw2();
+                ctx.beginPath();
+                var dotx = dicex + 3*dotRadius;
+                var doty = dicey + diceHeight - 3*dotRadius;
+                ctx.arc(dotx, doty, dotRadius, 0, 2*Math.PI, true);
+                dotx = dicex + diceWidth - 3*dotRadius;
+                doty = dicey + 3*dotRadius;
+                ctx.arc(dotx, doty, dotRadius, 0, 2*Math.PI, true);
+                ctx.closePath();
+                ctx.fill();
+            }
+
+            function draw2mid() {
+                ctx.beginPath();
+                dotx = dicex + 3*dotRadius;
+                doty = dicey + .5*diceHeight;
+                ctx.arc(dotx, doty, dotRadius, 0, 2*Math.PI, true);
+                dotx = dicex + diceWidth - 3*dotRadius;
+                doty = dicey + .5*diceHeight;
+                ctx.arc(dotx, doty, dotRadius, 0, 2*Math.PI, true);
+                ctx.closePath();
+                ctx.fill();
+            }
+        </script>
+    </head>
+    <body onLoad="init();">
+        <canvas id="canvas" width="500" height="500">
+            Your browser doesn't support the HTML5 element canvas.
+        </canvas>
+    </body>
+</html>
