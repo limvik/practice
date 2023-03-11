@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>The Shiba Inu</title>
+        <script>
+            let img = new Image();
+            img.src = "shiba.png";
+            let ctx;
+
+            function init() {
+                ctx = document.getElementById("canvas").getContext('2d');
+                ctx.drawImage(img, 10, 20, 100, 100);
+            }
+        </script>
+    </head>
+    <body onLoad="init();">
+        <canvas id="canvas" width="400" height="300">
+            Your browser doesn't support the HTML5 element canvas
+        </canvas>
+    </body>
+</html>
