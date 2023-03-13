@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>A Falshcard</title>
+        <script>
+            let problem = "javascript에는 class가 존재하지 않는다.";
+            let correct = "정답입니다."
+            let incorrect = "오답입니다."
+            let backgroundColor = "BlueViolet"
+            let ctx;
+
+            function init() {
+                document.body.style.backgroundColor = backgroundColor;
+                ctx = document.getElementById("canvas").getContext("2d");
+                ctx.linewidth = 5;
+                ctx.strokeRect(0, 0, 500, 100);
+                ctx.font = "20px Arial";
+                ctx.fillText(problem, 30, 50);
+            }
+
+            function checkO() {
+                clearText();
+                ctx.fillStyle = "red";
+                ctx.fillText(incorrect, 30, 150);
+            }
+
+            function checkX() {
+                clearText();
+                ctx.fillStyle = "blue";
+                ctx.fillText(correct, 30, 150);
+            }
+
+            function clearText() {
+                ctx.fillStyle = backgroundColor;
+                ctx.fillText(correct, 30, 150);
+                ctx.fillText(incorrect, 30, 150);
+            }
+        </script>
+    </head>
+    <body onLoad="init();">
+        <canvas id="canvas" width="500" height="250">
+            Your browser doesn't support the HTML5 element canvas.
+        </canvas>
+        <br/>
+        <button onClick="checkO();">
+            O
+        </button>
+        <button onClick="checkX();">
+            X
+        </button>
+    </body>
+</html>
