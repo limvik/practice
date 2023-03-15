@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>A Falshcard</title>
+        <script>
+            const problems = ["javascript에는 class가 존재하지 않는다.",
+                              "javascript 배열의 length 프로퍼티는 배열의 최대 인덱스보다 항상 크다."];
+            const solutions = [false, true];
+            let totalProblems = problems.length;
+            let problemCnt = 0;
+            let correct = "정답입니다.";
+            let incorrect = "오답입니다.";
+            let backgroundColor = "BlueViolet";
+
+            function init() {
+                document.body.style.backgroundColor = backgroundColor;
+                document.getElementById("quiz").value = problems[0];
+            }
+
+            function check(answer) {
+                if (answer === solutions[problemCnt]) {
+                    alert(correct);
+                } else {
+                    alert(incorrect);
+                }
+                nextProblem();
+            }
+
+            function nextProblem() {
+                ++problemCnt;
+                if(problemCnt === totalProblems) {
+                    alert("모든 문제 풀이를 완료하였습니다. 첫 문제로 돌아갑니다.");
+                    problemCnt = 0;
+                }
+                document.getElementById("quiz").value = problems[problemCnt];
+            }
+        </script>
+    </head>
+    <body onLoad="init();">
+        <textarea id="quiz" rows="4" cols="50" disabled>
+        </textarea>
+        <br/>
+        <p id="answer"></p>
+        <br/>
+        <button onclick="check(true);">
+            O
+        </button>
+        <button onclick="check(false);">
+            X
+        </button>
+    </body>
+</html>
