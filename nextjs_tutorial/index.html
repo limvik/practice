@@ -1,0 +1,23 @@
+<html>
+    <body>
+        <div id="app"></div>
+        <script type="text/javascript">
+            const app = document.getElementById('app');
+            const header = document.createElement('h1');
+            const headerContent = document.createTextNode(
+                'Develop. Preview. Ship. 🚀',
+            );
+
+            header.appendChild(headerContent);
+            app.appendChild(header);
+        </script>
+    </body>
+</html>
+
+<!--
+    plain javascript로 DOM을 업데이트 하려면, 많은 노력이 필요하다.
+    React는 이러한 번거로운 일을 줄여준다.
+    plain javascript로 작업하는게 imperative programming 이라면,
+    React로 작업하는건 declarative programming이다.
+    https://nextjs.org/learn/foundations/from-javascript-to-react/updating-ui-with-javascript
+-->
