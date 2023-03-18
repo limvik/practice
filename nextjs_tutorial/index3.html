@@ -1,0 +1,46 @@
+<html>
+    <body>
+        <div id="app"></div>
+
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+        <script type="text/jsx">
+            const app = document.getElementById('app');
+            
+            function Header() {
+                return <h1>Develop. Preview. Ship. 🚀</h1>;
+            }
+
+            function HomePage() {
+                return (
+                    <div>
+                        <Header />
+                    </div>
+                );
+            }
+
+            ReactDOM.render(<HomePage />, app);
+        </script>
+    </body>
+</html>
+
+<!-- 
+    React의 빌딩 블록은 components라 하고, components는 UI elements를 반환하는 javascript function이다.
+    반환 시에는 JSX를 사용할 수 있다.
+    plain HTML 그리고 javascript와 구분하기 위해 첫 문자는 대문자로하고 HTML tag 처럼 angle brakets<>를 사용한다.
+ -->
+
+ <!-- 
+    React의 Top-Level Component는 HomePage이고, 각 Component 는 한단계 아래의 Component를 hold 할 수 있다.
+    예를들어, HomePage component는 Header, Article, Footer를 hold 할 수 있다.
+    Components Tree는 아래 링크 참조
+  -->
+
+ <!-- https://nextjs.org/learn/foundations/from-javascript-to-react/building-ui-with-components -->
+ <!-- 
+    추가 학습 자료
+    https://react.dev/learn/your-first-component
+    https://react.dev/learn/importing-and-exporting-components
+  -->
