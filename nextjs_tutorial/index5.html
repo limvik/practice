@@ -1,0 +1,51 @@
+<html>
+    <body>
+        <div id="app"></div>
+
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+        <script type="text/jsx">
+            const app = document.getElementById('app');
+            
+            function Header({ title }) {
+                return <h1>{title ? title : 'Default title'}</h1>;
+            }
+
+            function HomePage() {
+                const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+                return (
+                    <div>
+                        <Header title="Develop. Preview. Ship. 🚀" />
+                        <ul>
+                            {names.map((name) => (
+                                <li key={name}>{name}</li>
+                            ))}
+                        </ul>
+                    </div>
+                );
+            }
+
+            ReactDOM.render(<HomePage />, app);
+        </script>
+    </body>
+</html>
+
+<!-- 
+    `key` prop을 설정하지 않으면, warning이 발생한다.
+    React에서는 DOM에서 갱신하기 위한 elements가 무엇인지 알 수 있도록, 
+    array에 있는 item을 유일하게 식별할 수 있는 무언가가 필요하기 때문이다.
+    예제에서는 그냥 name을 썼지만, id와 같이 유일하게 식별할 수 있는 것을 사용해야한다.
+ -->
+
+ <!-- 
+    추가학습 자료
+    https://beta.reactjs.org/learn/passing-props-to-a-component
+    https://beta.reactjs.org/learn/rendering-lists
+    https://beta.reactjs.org/learn/conditional-rendering
+  -->
+
+ <!-- 
+    https://nextjs.org/learn/foundations/from-javascript-to-react/displaying-data-with-props
+  -->

@@ -1,0 +1,69 @@
+<html>
+    <body>
+        <div id="app"></div>
+
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+        <script type="text/jsx">
+            const app = document.getElementById('app');
+            
+            function Header({ title }) {
+                return <h1>{title ? title : 'Default title'}</h1>;
+            }
+
+            // object property with dot notation
+            // function Header(props) {
+            //     return <h1>{props.title}</h1>;
+            // }
+
+            // A template literal
+            // function Header({ title }) {
+            //    return <h1>{`Cool ${title}`}</h1>;
+            // }
+
+            // The returned value of a function
+            function createTitle(title) {
+                if (title) {
+                    return title;
+                } else {
+                    return 'Default title';
+                }
+            }
+
+            // function Header({ title }) {
+            //     return <h1>{createTitle(title)}</h1>;
+            // }
+
+            function HomePage() {
+                return (
+                    <div>
+                        <Header title="React 💙" />
+                        <Header />
+                        <Header title="New Title" />
+                    </div>
+                );
+            }
+
+            ReactDOM.render(<HomePage />, app);
+        </script>
+    </body>
+</html>
+
+<!-- 
+    정보를 전달하여 <img> element의 src attribute 를 바꾸는 것 처럼,
+    React components에 전달되는 정보(properties)를 `props` 라고 한다. (이 예제에서는 title)
+    
+    React 에서는 data가 component tree의 위에서 아래로 한방향으로 흐르기 때문에,
+    parent에서 child로만 props를 전달할 수 있다.
+    
+    javascript function을 통해 전달되는 props는 javascript의 object다.
+    따라서, function parameter 안에 props의 values 이름을 명시하여 object destructuring을 사용할 수 있다.
+
+    JSX markup 내에 regular javascript를 direct로 작성하려면 curly braces {} 안에 작성한다.
+ -->
+
+ <!-- 
+    https://nextjs.org/learn/foundations/from-javascript-to-react/displaying-data-with-props
+  -->
