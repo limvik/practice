@@ -1,0 +1,86 @@
+<html>
+    <body>
+        <div id="app"></div>
+
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+        <script type="text/jsx">
+            const app = document.getElementById('app');
+            
+            function Header({ title }) {
+                return <h1>{title ? title : 'Default title'}</h1>;
+            }
+
+            function HomePage() {
+                const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+                const [likes, setLikes] = React.useState(0);
+
+                function handleClick() {
+                    setLikes(likes + 1);
+                }
+
+                return (
+                    <div>
+                        <Header title="Develop. Preview. Ship. 🚀" />
+                        <ul>
+                            {names.map((name) => (
+                                <li key={name}>{name}</li>
+                            ))}
+                        </ul>
+
+                        <button onClick={handleClick}>Like ({likes})</button>
+                    </div>
+                );
+            }
+
+            ReactDOM.render(<HomePage />, app);
+        </script>
+    </body>
+</html>
+
+    <!-- 
+    Reaact는 hooks 라고 부르는 function의 집합이 있다.
+    Hooks는 component에 state 같은 추가적인 로직을 추가할 수 있게 해준다.
+    State는 일반적으로 사용자 상호 작용에 의해 트리거되어, 
+    시간이 지남에 따라 변경되는 UI에 대한 모든 정보라 할 수 있다.
+
+    React에서 state를 관리하기 위한 hook으로 useState() 가 요청된다.
+    useState()는 array를 반환하며 array destructuring을 이용하여,
+    component 내부에서 array value를 사용할 수 있다.
+
+    array의 첫 번째 item은 state의 value이고, 두 번째 item은 value를 update하기 위한 function이다.
+    이름을 마음대로 설정할 수 있지만, 첫 번째 item에는 descriptive한 것을 권장하고,
+    두 번째 item에는 첫 번째 item 이름에 set을 prefix로 붙이는 것이 일반적이다.
+
+    useState() 에는 초기값을 인수로 전달할 수 있다.
+
+    props가 함수의 첫 번째 파라미터로 component에 전달되는 것과 달리,
+    state는 component 내에서 초기화되고 저장된다.
+    state를 props로 children components에 전달할 수는 있지만,
+    state를 update하는 로직은 반드시 state가 생성된 component에서 수행되어야 한다.
+    -->
+
+    <!-- 
+    추천 자료
+    https://react.dev/reference/react#state-hooks
+    https://react.dev/learn/adding-interactivity
+    https://react.dev/learn/managing-state
+    -->
+
+  <!-- 
+    Quick Review: What is the difference between props and state?
+    Props is read-only information that's passed to components.
+    State is information that can change over time, usually triggered by user interaction. 
+   -->
+
+   <!-- 
+    추가학습 자료
+    https://react.dev/learn/state-a-components-memory
+    https://react.dev/learn/responding-to-events
+    -->
+
+    <!-- 
+    https://nextjs.org/learn/foundations/from-javascript-to-react/displaying-data-with-props
+    -->
