@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flashcards App - Study</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+
+    header h1 {
+      display: inline;
+      margin-right: 20px;
+    }
+
+    nav {
+      display: inline;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      margin-right: 10px;
+    }
+
+    .progress-bar {
+      height: 10px;
+      background-color: #ccc;
+      margin: 20px 0;
+    }
+
+    .progress-bar div {
+      height: 100%;
+      background-color: #3c87f0;
+    }
+
+    .flashcard {
+      background-color: #f5f5f5;
+      padding: 20px;
+      margin: 20px;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+
+    .flashcard-content {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .show-answer {
+      background-color: #3c87f0;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .controls button {
+      background-color: #3c87f0;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Flashcards App</h1>
+    <nav>
+      <a href="#">Dashboard</a>
+      <a href="#">Browse</a>
+    </nav>
+  </header>
+
+  <div class="progress-bar">
+    <div style="width: 50%;"></div>
+  </div>
+
+  <div class="flashcard">
+    <div class="flashcard-content">
+      <!-- Flashcard content (text, images, audio) goes here -->
+      Flashcard Question
+    </div>
+    <a href="#" class="show-answer">Show Answer</a>
+  </div>
+
+  <div class="controls">
+    <button>Previous</button>
+    <button>Mark Correct</button>
+    <button>Mark Incorrect</button>
+    <button>Next</button>
+    <button>Finish</button>
+  </div>
+</body>
+</html>
