@@ -15,6 +15,10 @@ import User from './lecture/day2/ThisStateTest';
 import LifeCycleEx from './lecture/day2/LifeCycle';
 import User2 from './lecture/day2/UseStateTest';
 import BoardList from './lecture/day2/BoardList';
+import NumberSum from './lecture/day3/NumberSum';
+import SmartHome from './lecture/day3/UseCallbackTest';
+import LoginForm from './lecture/day3/LoginForm';
+import LoginForm2 from './lecture/day3/LoginForm2';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -38,6 +42,14 @@ root.render(
     <LifeCycleEx prop_value = "프롭스 전달" />
     <User2 id={1}/>
     <BoardList />
+    <hr />
+    <NumberSum />
+    <hr />
+    <SmartHome />
+    <hr />
+    <LoginForm />
+    <hr />
+    <LoginForm2 />
   </React.StrictMode>
 );
 
