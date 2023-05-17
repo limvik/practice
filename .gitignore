@@ -71,9 +71,10 @@ mini-blog/src/component/page/PostWritePage.jsx
 mini-blog/src/component/ui/Button.jsx
 mini-blog/src/component/ui/TextInput.jsx
 mini-blog/target/npmlist.json
-simple_flashcards/.idea/vcs.xml
+simple_flashcards/.idea/*
 simple_flashcards/target/classes/SimpleFlashcardsApplication.class
 simple_flashcards/target/classes/domain/Card.class
 simple_flashcards/target/classes/domain/User.class
 simple_flashcards/target/classes/util/EnterKeyDetector.class
 simple_flashcards/target/classes/util/WordLoader.class
+.idea
