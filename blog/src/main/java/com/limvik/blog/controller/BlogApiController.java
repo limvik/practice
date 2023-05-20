@@ -3,6 +3,7 @@ package com.limvik.blog.controller;
 import com.limvik.blog.domain.Article;
 import com.limvik.blog.dto.AddArticleRequest;
 import com.limvik.blog.dto.ArticleResponse;
+import com.limvik.blog.dto.UpdateArticleRequest;
 import com.limvik.blog.service.BlogService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -49,5 +50,14 @@ public class BlogApiController {
 
         return ResponseEntity.ok()
                 .build();
+    }
+
+    @PutMapping("/api/articles/{id}")
+    public ResponseEntity<Article> updateArticle(@PathVariable long id,
+                                                 @RequestBody UpdateArticleRequest request) {
+        Article updateArticle = blogService.update(id, request);
+
+        return ResponseEntity.ok()
+                .body(updateArticle);
     }
 }
