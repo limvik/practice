@@ -145,13 +145,7 @@ class BlogApiControllerTest {
     public void deleteArticle() throws Exception {
         // given
         final String url = "/api/articles/{id}";
-        final String title = "title";
-        final String content = "content";
-
-        Article savedArticle = blogRepository.save(Article.builder()
-                .title(title)
-                .content(content)
-                .build());
+        Article savedArticle = createDefaultArticle();
 
         // when
         mockMvc.perform(delete(url, savedArticle.getId()))
@@ -168,13 +162,7 @@ class BlogApiControllerTest {
     public void updateArticle() throws Exception {
         // given
         final String url = "/api/articles/{id}";
-        final String title = "title";
-        final String content = "content";
-
-        Article savedArticle = blogRepository.save(Article.builder()
-                .title(title)
-                .content(content)
-                .build());
+        Article savedArticle = createDefaultArticle();
 
         final String newTitle = "new title";
         final String newContent = "new content";
