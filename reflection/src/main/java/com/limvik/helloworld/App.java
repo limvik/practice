@@ -1,4 +1,4 @@
-package com.limvik;
+package com.limvik.helloworld;
 
 /**
  * Hello world!
