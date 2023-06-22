@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<limviks>
+    <limvik>com.limvik.xml.Seahorse</limvik>
+    <limvik>com.limvik.xml.Plankton</limvik>
+</limviks>
