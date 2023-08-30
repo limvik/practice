@@ -28,6 +28,13 @@
                     <!-- v-show를 하면 display:none 이 설정될 뿐 element 자체가 사라지지는 않는다. -->
                     <!-- <p v-show="inStock">In Stock</p> -->
                     <p v-if="onSale">On Sale</p>
+                    <ul>
+                        <li v-for="detail in details">{{ detail }}</li>
+                    </ul>
+                    <div v-for="variant in variants" :key="variant.id">{{ variant.color }}</div>
+                    <ul>
+                        <li v-for="size in sizes">{{ size }}</li>
+                    </ul>
                 </div>
             </div>
         </div>
