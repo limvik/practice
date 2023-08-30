@@ -26,22 +26,29 @@
                     </a>
                 </div>
                 <div class="product-info">
-                    <h1>{{ product }}</h1>
+                    <h1>{{ title + ' ' + onSaleMessage}}</h1>
                     <!-- <p v-if="inStock">In Stock</p>-->
-                    <p v-if="inventory > 10">In Stock</p>
-                    <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out</p>
+                    <p v-if="inStock > 10">In Stock</p>
+                    <p v-else-if="inStock <= 10 && inStock > 0">Almost sold out</p>
                     <p v-else :style="styles">Out of Stock</p> <!-- style도 data로 넣을 수 있음 -->
                     <!-- v-show를 하면 조건에 따라 display:none 이 설정될 뿐 element 자체가 사라지지는 않는다. -->
                     <!-- <p v-show="inStock">In Stock</p> -->
-                    <p v-if="onSale">On Sale</p>
+                    <!-- <p v-if="onSale">On Sale</p> -->
                     <ul>
                         <li v-for="detail in details">{{ detail }}</li>
                     </ul>
                     <!-- @mouseover는 vue 버전의 hover -->
-                    <div 
+                    <!-- <div 
                         v-for="variant in variants"
                         :key="variant.id"
                         @mouseover="updateImage(variant.image)"
+                        class="color-circle"
+                        :style="{ backgroundColor: variant.color }">
+                    </div> -->
+                    <div 
+                        v-for="(variant, index) in variants"
+                        :key="variant.id"
+                        @mouseover="updateVariant(index)"
                         class="color-circle"
                         :style="{ backgroundColor: variant.color }">
                         <!-- :style="{ 'background-color': variant.color }"> -->
@@ -56,7 +63,7 @@
                     <!-- Multiple Classes -->
                     <button 
                         class="button"
-                        :class="{ disabledButton: !inStcok}"
+                        :class="{ disabledButton: !inStock}"
                         :disabled="!inStock"
                         @click="addToCart">
                         Add to Cart
