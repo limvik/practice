@@ -21,6 +21,13 @@
                 </div>
                 <div class="product-info">
                     <h1>{{ product }}</h1>
+                    <!-- <p v-if="inStock">In Stock</p>-->
+                    <p v-if="inventory > 10">In Stock</p>
+                    <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out</p>
+                    <p v-else>Out of Stock</p> 
+                    <!-- v-show를 하면 display:none 이 설정될 뿐 element 자체가 사라지지는 않는다. -->
+                    <!-- <p v-show="inStock">In Stock</p> -->
+                    <p v-if="onSale">On Sale</p>
                 </div>
             </div>
         </div>
