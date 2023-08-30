@@ -18,7 +18,11 @@
             <div class="product-container">
                 <div class="product-image">
                     <a :href="url">
-                        <img :src="image" alt="socks"/>
+                        <img
+                            :src="image"
+                            alt="socks"
+                            :class="{'out-of-stock-img': !inStock}"
+                        />
                     </a>
                 </div>
                 <div class="product-info">
@@ -26,21 +30,38 @@
                     <!-- <p v-if="inStock">In Stock</p>-->
                     <p v-if="inventory > 10">In Stock</p>
                     <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out</p>
-                    <p v-else>Out of Stock</p> 
-                    <!-- v-show를 하면 display:none 이 설정될 뿐 element 자체가 사라지지는 않는다. -->
+                    <p v-else :style="styles">Out of Stock</p> <!-- style도 data로 넣을 수 있음 -->
+                    <!-- v-show를 하면 조건에 따라 display:none 이 설정될 뿐 element 자체가 사라지지는 않는다. -->
                     <!-- <p v-show="inStock">In Stock</p> -->
                     <p v-if="onSale">On Sale</p>
                     <ul>
                         <li v-for="detail in details">{{ detail }}</li>
                     </ul>
                     <!-- @mouseover는 vue 버전의 hover -->
-                    <div v-for="variant in variants" :key="variant.id" @mouseover="updateImage(variant.image)">{{ variant.color }}</div>
+                    <div 
+                        v-for="variant in variants"
+                        :key="variant.id"
+                        @mouseover="updateImage(variant.image)"
+                        class="color-circle"
+                        :style="{ backgroundColor: variant.color }">
+                        <!-- :style="{ 'background-color': variant.color }"> -->
+                        <!-- dash가 있는 kebab cased 스타일을 사용하려면 문자열로 -->
+                    </div>
                     <ul>
                         <li v-for="size in sizes">{{ size }}</li>
                     </ul>
                     <!-- <button class="button" v-on:click="cart += 1">Add to Cart</button> -->
                     <!-- <button class="button" v-on:click="addToCart">Add to Cart</button> -->
-                    <button class="button" @click="addToCart">Add to Cart</button>
+
+                    <!-- Multiple Classes -->
+                    <button 
+                        class="button"
+                        :class="{ disabledButton: !inStcok}"
+                        :disabled="!inStock"
+                        @click="addToCart">
+                        Add to Cart
+                    </button>
+                    <!-- ternary operator 도 알려줬는데 안됨 :class="[!inStock ? disabledButton : '']" -->
                     <button class="button" @click="removeFromCart">Remove from Cart</button>
                 </div>
             </div>
