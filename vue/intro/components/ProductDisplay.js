@@ -31,7 +31,7 @@ app.component('product-display', {
                 <p>Shipping: {{ shipping }}</p>
 
                 <ul>
-                    <li v-for="detail in details">{{ detail }}</li>
+                    <li v-for="attribute in attributes">{{ attribute }}</li>
                 </ul>
                 <!-- @mouseover는 vue 버전의 hover -->
                 <!-- <div 
@@ -79,7 +79,7 @@ app.component('product-display', {
             inventory: 0,
             // inStock: false,
             onSale: false,
-            details: ['50% cotton', '30% wool', '20% polyester'],
+            attributes: ['50% cotton', '30% wool', '20% polyester'],
             variants: [
                 { id: 2234, color: 'green', image: './assets/images/socks_green.jpg', quantity: 50 },
                 { id: 2235, color: 'blue', image: './assets/images/socks_blue.jpg', quantity: 0 }
@@ -93,7 +93,7 @@ app.component('product-display', {
     },
     methods: {
         addToCart() {
-            this.cart++
+            this.$emit('add-to-cart', this.variants[this.selectedVariant].id)
         },
         // updateImage(variantImage) {
         //     this.image = variantImage
@@ -102,8 +102,7 @@ app.component('product-display', {
             this.selectedVariant = index
         },
         removeFromCart() {
-            if (this.cart > 0)
-                this.cart--
+            this.$emit('remove-from-cart', this.variants[this.selectedVariant].id)
         }
     },
     computed: {

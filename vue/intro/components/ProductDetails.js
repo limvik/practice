@@ -10,10 +10,5 @@ app.component('product-details', {
     `<p 
         v-for="(detail, index) in details">
         {{ detail }}
-    </p>`,
-    data() {
-        return {
-            details: ['detail1', 'detail2']
-        }
-    }
+    </p>`
 })
