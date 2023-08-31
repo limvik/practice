@@ -68,6 +68,8 @@ app.component('product-display', {
                 <button class="button" @click="removeFromCart">Remove from Cart</button>
             </div>
         </div>
+        <review-list v-if="reviews.length" :reviews="reviews"></review-list>
+        <review-form @review-submitted="addReview"></review-form>
     </div>`,
     data() {
         return {
@@ -88,7 +90,8 @@ app.component('product-display', {
             styles: {
                 color: 'red',
                 fontSize: '2em'
-            }
+            },
+            reviews: []
         }
     },
     methods: {
@@ -103,6 +106,9 @@ app.component('product-display', {
         },
         removeFromCart() {
             this.$emit('remove-from-cart', this.variants[this.selectedVariant].id)
+        },
+        addReview(review) {
+            this.reviews.push(review)
         }
     },
     computed: {
